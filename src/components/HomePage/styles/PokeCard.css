@@ -1,0 +1,151 @@
+.pokecard {
+  width: 18em;
+  border-radius: 0.8em;
+  overflow: hidden;
+  box-shadow: 0.2em 0.2em 0.5em #0005;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0.2em 0.2em 1em #0006;
+  }
+}
+.pokecard__header {
+  background-color: var(--color-type);
+  height: 8em;
+  margin-bottom: 0.8em;
+  position: relative;
+}
+.pokecard__sprite {
+  width: 50%;
+  position: absolute;
+  bottom: -2em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pokecard__body {
+  padding: 1em 1em 0;
+}
+.pokecard__name {
+  color: var(--color-type);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+.pokecard__types {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  font-size: 0.7em;
+  margin-bottom: 3em;
+}
+.pokecard__stats__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1em 0.5em;
+  justify-items: center;
+  margin: 1em 0;
+}
+.pokecard__stat {
+  display: grid;
+  justify-items: center;
+  gap: 0.2em;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  &:nth-child(2) {
+    grid-column: 3/4;
+  }
+  &:nth-child(4) {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+  &:nth-child(5) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  &:nth-child(6) {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+.pokecard__stat__label {
+  font-weight: 500;
+}
+.pokecard__stat__value {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--color-type);
+}
+.pokecard__footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5em;
+}
+.pokecard__btn {
+  width: 10em;
+  padding: 0.5em;
+  border-radius: 0.7em;
+  background-color: var(--color-type);
+  color: white;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(1.1);
+    font-weight: 700;
+  }
+}
+
+.pokecard__bug {
+  --color-type: rgb(132, 181, 76);
+}
+.pokecard__dragon {
+  --color-type: rgb(157, 72, 222);
+}
+.pokecard__fairy {
+  --color-type: rgb(255, 175, 231);
+}
+.pokecard__fire {
+  --color-type: rgb(223, 81, 45);
+}
+.pokecard__ghost {
+  --color-type: rgb(112, 69, 159);
+}
+.pokecard__ground {
+  --color-type: rgb(142, 112, 54);
+}
+.pokecard__normal {
+  --color-type: rgb(164, 172, 175);
+}
+.pokecard__psychic {
+  --color-type: rgb(207, 92, 159);
+}
+.pokecard__steel {
+  --color-type: rgb(103, 132, 133);
+}
+.pokecard__dark {
+  --color-type: rgb(75, 73, 73);
+}
+.pokecard__electric {
+  --color-type: rgb(241, 215, 39);
+}
+.pokecard__fighting {
+  --color-type: rgb(225, 129, 69);
+}
+.pokecard__flying {
+  --color-type: rgb(155, 213, 255);
+}
+.pokecard__grass {
+  --color-type: rgb(77, 151, 68);
+}
+.pokecard__ice {
+  --color-type: rgb(85, 198, 232);
+}
+.pokecard__poison {
+  --color-type: rgb(178, 73, 207);
+}
+.pokecard__rock {
+  --color-type: rgb(105, 105, 91);
+}
+.pokecard__water {
+  --color-type: rgb(59, 91, 205);
+}
