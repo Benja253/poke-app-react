@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import TypeLabel from "../components/HomePage/TypeLabel"
+import './styles/PokeInfo.css'
+import RelationTypes from "../components/PokeInfo/RelationTypes"
 
 const PokeInfo = () => {
 
@@ -48,103 +50,76 @@ const PokeInfo = () => {
   console.log(pokemon)
 
   return (
-    <article>
-      <header>
-        <img src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
-      </header>
-      <section>
-        <h2>{pokemon?.name}</h2>
-        <ul>
-          {
-            pokemon?.types.map(typeInfo => (
-              <TypeLabel
-                key={typeInfo.type.url}
-                type={typeInfo.type.name}
-              />
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <h3>Abilities</h3>
-        <ul>
-          {
-            pokemon?.abilities.map(abilityInfo => (
-              <li key={abilityInfo.ability.url}>{abilityInfo.ability.name}</li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <header>
-          <h3>Weakness (Debil a)</h3>
+    <div className="body__margin">
+      <article className={`pokeinfo pokecard__${pokemon?.types[0].type.name}`}>
+        <header className="pokeinfo__header">
+          <img className="pokeinfo__img" src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
         </header>
-        <h4>x4</h4>
-        <ul>
+        <section className="pokeinfo__section__principal body__margin">
+          <h2 className="pokeinfo__name">{pokemon?.name}</h2>
+          <ul className="pokeinfo__types">
+            {
+              pokemon?.types.map(typeInfo => (
+                <TypeLabel
+                  key={typeInfo.type.url}
+                  type={typeInfo.type.name}
+                />
+              ))
+            }
+          </ul>
+        </section>
+        <section className="pokeinfo__abilities body__margin">
+          <h3 className="pokeinfo__abilities__title">Abilities</h3>
+          <ul className="pokeinfo__abilities__list">
+            {
+              pokemon?.abilities.map(abilityInfo => (
+                <li className="pokeinfo__abilities__item" key={abilityInfo.ability.url}>{abilityInfo.ability.name}</li>
+              ))
+            }
+          </ul>
+        </section>
+        <section className="body__margin">
+          <h1>Aquí van las estadisticas</h1>
+        </section>
+        <section className="pokeinfo__weakness body__margin">
+          <header className="pokeinfo__relations__header">
+            <h3 className="pokeinfo__weakness__title">Weakness (Debil a)</h3>
+          </header>
           {
-            typesRelation?.map(e => (
-              e.relation === 4 && <TypeLabel
-                key={e.name}
-                type={e.name}
-              />
-            ))
+            typesRelation?.filter(e => e.relation === 4).length !== 0 
+            && <RelationTypes title='x4' relation={4} class_relation='x4' typesRelation={typesRelation} />
           }
-        </ul>
-        <h4>x2</h4>
-        <ul>
           {
-            typesRelation?.map(e => (
-              e.relation === 2 && <TypeLabel
-                key={e.name}
-                type={e.name}
-              />
-            ))
+            typesRelation?.filter(e => e.relation === 2).length !== 0 
+            && <RelationTypes title='x2' relation={2} class_relation='x2' typesRelation={typesRelation} />
           }
-        </ul>
-      </section>
-      <section>
-        <header>
-          <h3>Resistance (Resiste a)</h3>
-        </header>
-        <h4>x0.5</h4>
-        <ul>
+          
+        </section>
+        <section className="pokeinfo__resistance body__margin">
+          <header className="pokeinfo__resistance__header">
+            <h3 className="pokeinfo__resistance__title">Resistance (Resiste a)</h3>
+          </header>
           {
-            typesRelation?.map(e => (
-              e.relation === 0.5 && <TypeLabel
-                key={e.name}
-                type={e.name}
-              />
-            ))
+            typesRelation?.filter(e => e.relation === 0.5).length !== 0 
+            && <RelationTypes title='x0.5' relation={0.5} class_relation='x05' typesRelation={typesRelation} />
           }
-        </ul>
-        <h4>x0.25</h4>
-        <ul>
           {
-            typesRelation?.map(e => (
-              e.relation === 0.25 && <TypeLabel
-                key={e.name}
-                type={e.name}
-              />
-            ))
+            typesRelation?.filter(e => e.relation === 0.25).length !== 0 
+            &&  <RelationTypes title='x0.25' relation={0.25} class_relation='x025' typesRelation={typesRelation} />
           }
-        </ul>
-      </section>
-      <section>
-        <header>
-          <h3>Immune (Inmune a)</h3>
-          <ul>
+        </section>
+        <section className="pokeinfo__x0 body__margin">
+          <header className="pokeinfo__x0__header">
+            <h3 className="pokeinfo__x0__title">Immune (Inmune a)</h3>
+          </header>
           {
-            typesRelation?.map(e => (
-              e.relation === 0 && <TypeLabel
-                key={e.name}
-                type={e.name}
-              />
-            ))
+            typesRelation?.filter(e => e.relation === 0).length !== 0 
+              ? <RelationTypes title='x0' relation={0} class_relation='x0' typesRelation={typesRelation} />
+              : 'none'
           }
-        </ul>
-        </header>
-      </section>
-    </article>
+        </section>
+      </article>
+    </div>
   )
 }
 

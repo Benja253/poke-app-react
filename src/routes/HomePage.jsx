@@ -15,16 +15,18 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="home">
-      <div className="card__container">
-        {
-          pokemons?.results.map(poke => (
-            <PokeCard 
-              key={poke.url}
-              url={poke.url}
-            />
-          ))
-        }
+    <div className="body__margin">
+      <div className="home">
+        <div className="card__container">
+          {
+            pokemons?.results.map(poke => (
+              <PokeCard 
+                key={poke.url}
+                url={poke.url}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   )

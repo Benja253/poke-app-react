@@ -14,6 +14,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: #eee;
 }
 h1, h2, h3, h4, p, ul, hr {
   margin-top: 0;
@@ -35,4 +36,7 @@ input {
 }
 button {
   border: none;
+}
+.body__margin {
+  margin: 0 1em;
 }

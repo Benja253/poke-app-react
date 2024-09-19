@@ -1,0 +1,95 @@
+.pokeinfo {
+  border-radius: 0.8em;
+  overflow: hidden;
+  background-color: #fff;
+}
+.pokeinfo__header {
+  height: 10em;
+  background-color: var(--color-type);
+  position: relative;
+  margin-bottom: 5em;
+}
+.pokeinfo__img {
+  width: 15em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pokeinfo__name {
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--color-type);
+  margin-bottom: 0.5em;
+}
+.pokeinfo__types {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 0.8em;
+}
+.pokeinfo__abilities {
+  margin-bottom: 1em;
+}
+.pokeinfo__abilities__title,
+.pokeinfo__weakness__title,
+.pokeinfo__resistance__title,
+.pokeinfo__x0__title {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+.pokeinfo__abilities__title {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.pokeinfo__abilities__list {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+.pokeinfo__abilities__item {
+  width: 8em;
+  font-size: 0.8em;
+  padding: 0.5em;
+  background-color: #ddd;
+  text-align: center;
+  border-radius: 0.6em;
+  text-transform: capitalize;
+}
+.pokeinfo__relation__section {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.pokeinfo__relation__title{
+  width: 3em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aaa;
+  color: white;
+  margin-bottom: 0.6em;
+  &.x4 {
+    background-color: rgb(0, 186, 0);
+  }
+  &.x2 {
+    background-color: rgb(87, 160, 87);
+  }
+  &.x05 {
+    background-color: rgb(220, 109, 109);
+  }
+  &.x025 {
+    background-color: rgb(216, 3, 3);
+  }
+}
+.pokeinfo__relation__list {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  font-size: 0.8em;
+}
