@@ -1,0 +1,40 @@
+.pokeinfo__evo {
+  display: grid;
+  grid-template-columns: 5fr 3fr 5fr 3fr 5fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  max-width: 48em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pokeinfo__evo__item {
+  display: grid;
+  justify-items: center;
+  transition: transform 150ms ease;
+  padding: 1em 0.5em 1.5em;
+  border-radius: 0.8em;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.04);
+    background-color: #aaa5;
+  }
+}
+.pokeinfo__evo__name {
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+.pokeinfo__flecha__container {
+  position: relative;
+  font-size: 1em;
+}
+.pokeinfo__evo__lvl {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-60%, -55%);
+  color: white;
+  font-size: 1.1em;
+  font-weight: 700;
+  width: max-content;
+}

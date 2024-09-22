@@ -2,6 +2,7 @@
   border-radius: 0.8em;
   overflow: hidden;
   background-color: #fff;
+  padding-bottom: 3em;
 }
 .pokeinfo__header {
   height: 10em;
@@ -20,6 +21,11 @@
   text-transform: capitalize;
   color: var(--color-type);
   margin-bottom: 0.5em;
+  display: grid;
+}
+.pokeinfo__id {
+  font-size: 1.5em;
+  fill: black;
 }
 .pokeinfo__types {
   display: flex;
@@ -57,6 +63,35 @@
   border-radius: 0.6em;
   text-transform: capitalize;
 }
+.pokeinfo__stats {
+  padding-bottom: 2em;
+}
+.pokeinfo__stats__list {
+  display: grid;
+  gap: 1em;
+}
+.pokeinfo__stat__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  margin-bottom: 0.5em;
+}
+.pokeinfo__stat__label {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.pokeinfo__stat__bar {
+  height: 2.5em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.pokeinfo__stat__bar__int {
+  width: 0%;
+  transition: width 1s ease;
+  height: 100%;
+  background: linear-gradient(90deg, #ffed75d0,rgba(255, 164, 36, 0.776));
+}
 .pokeinfo__relation__section {
   display: flex;
   gap: 1em;
@@ -92,4 +127,25 @@
   flex-wrap: wrap;
   margin-bottom: 1em;
   font-size: 0.8em;
+}
+.pokeinfo__moves {
+  margin-top: 3em;
+  padding: 3em 1em 3em;
+  background-color: #fff;
+  border-radius: 0.8em;
+}
+.pokeinfo__move__title {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+.pokeinfo__move__head {
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--color-type);
+  color: white;
+  font-weight: 700;
+  &.pokeinfo__move__column {
+    border: 1px solid #c6d2f66f;
+  }
 }

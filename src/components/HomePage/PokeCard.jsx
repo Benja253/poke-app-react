@@ -18,6 +18,10 @@ const PokeCard = ({url}) => {
 
   const handleClick = () => {
     navigate(`/poke/${pokemon?.name}`)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   return (

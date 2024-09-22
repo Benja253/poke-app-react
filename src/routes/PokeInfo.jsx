@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import TypeLabel from "../components/HomePage/TypeLabel"
 import './styles/PokeInfo.css'
 import RelationTypes from "../components/PokeInfo/RelationTypes"
+import MovesPoke from "../components/PokeInfo/MovesPoke"
+import PokeEvolution from "../components/PokeInfo/PokeEvolution"
 
 const PokeInfo = () => {
 
@@ -17,7 +19,7 @@ const PokeInfo = () => {
     axios.get(url)
       .then(res => setPokemon(res.data))
       .catch(err => console.log(err))
-  }, [])
+  }, [name])
 
   useEffect(() => {
     if(pokemon) {
@@ -56,7 +58,7 @@ const PokeInfo = () => {
           <img className="pokeinfo__img" src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
         </header>
         <section className="pokeinfo__section__principal body__margin">
-          <h2 className="pokeinfo__name">{pokemon?.name}</h2>
+          <h2 className="pokeinfo__name"><span className="pokeinfo__id">#{pokemon?.id}</span> {pokemon?.name}</h2>
           <ul className="pokeinfo__types">
             {
               pokemon?.types.map(typeInfo => (
@@ -78,8 +80,27 @@ const PokeInfo = () => {
             }
           </ul>
         </section>
-        <section className="body__margin">
-          <h1>Aquí van las estadisticas</h1>
+        <section className="body__margin pokeinfo__stats">
+          {
+            <ul className="pokeinfo__stats__list">
+              {
+                pokemon?.stats.map(statInfo => (
+                  <div key={statInfo.stat.url} className="pokeinfo__stat">
+                    <div className="pokeinfo__stat__header">
+                      <div className="pokeinfo__stat__label">{statInfo.stat.name}</div>
+                      <div className="pokeinfo__stat__value">{statInfo.base_stat}/255</div>
+                    </div>
+                    <div className="pokeinfo__stat__bar">
+                      <div 
+                        style={{width: `${statInfo.base_stat / 255 * 100}%`}} 
+                        className="pokeinfo__stat__bar__int"
+                      ></div>
+                    </div>
+                  </div>
+                ))
+              }
+            </ul>
+          }
         </section>
         <section className="pokeinfo__weakness body__margin">
           <header className="pokeinfo__relations__header">
@@ -117,6 +138,36 @@ const PokeInfo = () => {
               ? <RelationTypes title='x0' relation={0} class_relation='x0' typesRelation={typesRelation} />
               : 'none'
           }
+        </section>
+      </article>
+      <article className={`pokeinfo__moves pokecard__${pokemon?.types[0].type.name}`}>
+        <h2 className="pokeinfo__move__title">Evolition Chain</h2>
+        {
+          pokemon &&
+          <PokeEvolution url={pokemon?.species.url} />
+        }
+      </article>
+      <article className={`pokeinfo__moves pokecard__${pokemon?.types[0].type.name}`}>
+        <h2 className="pokeinfo__move__title">Moves</h2>
+        <section className="pokeinfo__move__grid">
+          <ul className="pokeinfo__move__list">
+            <li className="pokeinfo__move__item">
+              <div className="pokeinfo__move__column pokeinfo__move__head">name</div>
+              <div className="pokeinfo__move__column pokeinfo__move__head">class</div>
+              <div className="pokeinfo__move__column pokeinfo__move__head">type</div>
+              <div className="pokeinfo__move__column pokeinfo__move__head">power</div>
+              <div className="pokeinfo__move__column pokeinfo__move__head">accuracy</div>
+              <div className="pokeinfo__move__column pokeinfo__move__head">pp</div>
+            </li>
+            {
+              pokemon?.moves.map(moveInfo => (
+                <MovesPoke 
+                  key={moveInfo.move.url}
+                  url={moveInfo.move.url}
+                />
+              ))
+            }
+          </ul>
         </section>
       </article>
     </div>
