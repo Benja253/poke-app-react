@@ -1,6 +1,24 @@
 .header {
   box-shadow: 0 0 1em #0005;
   margin-bottom: 2em;
+  position: relative;
+}
+.header__logo {
+  position: absolute;
+  width: 100%;
+  max-width: 8em;
+  z-index: 1;
+  margin-left: 3em;
+  top: 1em;
+  cursor: pointer;
+  transition: transform 100ms ease;
+  &:hover {
+    filter: brightness(1.05);
+    transform: scale(1.03);
+  }
+}
+.header__logo__img {
+
 }
 .header__white {
   background-color: var(--pokeball-white);
