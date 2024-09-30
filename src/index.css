@@ -37,6 +37,7 @@ input {
 }
 button {
   border: none;
+  cursor: pointer;
 }
 .body__margin {
   margin: 0 1em;

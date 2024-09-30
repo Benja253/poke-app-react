@@ -1,11 +1,33 @@
 .home__search {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
+}
+.home__search__input {
+  font-size: 1.1em;
+  font-weight: 300;
+  padding: 0.5em 1em;
+  border-radius: 0.5em 0 0 0.5em;
+  border: 1px solid #aaa9;
+  border-right: none;
+}
+.home__search__btn {
+  font-size: 1.1em;
+  font-weight: 300;
+  width: 6em;
+  background-color: var(--pokeball-red);
+  color: white;
+  border-radius: 0 0.5em 0.5em 0;
+  filter: grayscale(0.2);
+  &:hover {
+    filter: none;
+    font-weight: 500;
+  }
 }
 .card__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5em;
+  margin: 3em 0;
 }

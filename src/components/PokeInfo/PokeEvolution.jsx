@@ -13,7 +13,6 @@ const PokeEvolution = ({url}) => {
       const species = await axios.get(url)
       const evolutionChain = await axios.get(species.data.evolution_chain.url)
       let evo = evolutionChain.data.chain
-      console.log(evo)
       const urlPoke = `https://pokeapi.co/api/v2/pokemon/${evo.species.name}`
       const pokeInfo = await axios.get(urlPoke)
       const arrResult = [{
@@ -38,7 +37,7 @@ const PokeEvolution = ({url}) => {
       setEvolutions(arrResult)
     }
     fetchEvolution()
-  }, [])
+  }, [url])
 
   useEffect(() => {
     if(evolutions) {
@@ -48,9 +47,6 @@ const PokeEvolution = ({url}) => {
       })
     }
   }, [evolutions])
-
-
-  console.log(evolutions)
 
   const navigate = useNavigate()
 

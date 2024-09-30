@@ -49,8 +49,6 @@ const PokeInfo = () => {
     }
   }, [pokemon])
 
-  console.log(pokemon)
-
   return (
     <div className="body__margin">
       <article className={`pokeinfo pokecard__${pokemon?.types[0].type.name}`}>
