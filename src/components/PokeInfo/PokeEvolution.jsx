@@ -58,6 +58,8 @@ const PokeEvolution = ({url}) => {
     });
   }
 
+  console.log(evolutions)
+
   return (
     <div className="pokeinfo__evo" style={styleContainer}>
         {

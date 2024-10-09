@@ -49,13 +49,30 @@ const PokeInfo = () => {
     }
   }, [pokemon])
 
+  const handleSortedMoves = (a, b) => {
+    const elementA = a.version_group_details[a.version_group_details.length - 1]
+    const elementB = b.version_group_details[b.version_group_details.length - 1]
+
+    const first = (elementA.move_learn_method.name === 'machine') ? 9999999 : (elementA.move_learn_method.name === 'tutor') ? Infinity : elementA.level_learned_at
+    
+    const second = elementB.move_learn_method.name === 'machine' ? 9999999 : (elementB.move_learn_method.name === 'tutor') ? Infinity : elementB.level_learned_at
+
+    if(first < second) {
+      return - 1
+    } else if(second < first) {
+      return 1
+    } else {
+      return 0
+    }
+  }
+
   return (
-    <div className="body__margin">
+    <div className="pokeinfo__container">
       <article className={`pokeinfo pokecard__${pokemon?.types[0].type.name}`}>
         <header className="pokeinfo__header">
           <img className="pokeinfo__img" src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
         </header>
-        <section className="pokeinfo__section__principal body__margin">
+        <section className="pokeinfo__section__principal">
           <h2 className="pokeinfo__name"><span className="pokeinfo__id">#{pokemon?.id}</span> {pokemon?.name}</h2>
           <ul className="pokeinfo__types">
             {
@@ -68,7 +85,7 @@ const PokeInfo = () => {
             }
           </ul>
         </section>
-        <section className="pokeinfo__abilities body__margin">
+        <section className="pokeinfo__abilities">
           <h3 className="pokeinfo__abilities__title">Abilities</h3>
           <ul className="pokeinfo__abilities__list">
             {
@@ -78,7 +95,7 @@ const PokeInfo = () => {
             }
           </ul>
         </section>
-        <section className="body__margin pokeinfo__stats">
+        <section className="pokeinfo__stats pokeinfo__padding">
           {
             <ul className="pokeinfo__stats__list">
               {
@@ -100,7 +117,7 @@ const PokeInfo = () => {
             </ul>
           }
         </section>
-        <section className="pokeinfo__weakness body__margin">
+        <section className="pokeinfo__weakness pokeinfo__padding">
           <header className="pokeinfo__relations__header">
             <h3 className="pokeinfo__weakness__title">Weakness (Debil a)</h3>
           </header>
@@ -114,7 +131,7 @@ const PokeInfo = () => {
           }
           
         </section>
-        <section className="pokeinfo__resistance body__margin">
+        <section className="pokeinfo__resistance pokeinfo__padding">
           <header className="pokeinfo__resistance__header">
             <h3 className="pokeinfo__resistance__title">Resistance (Resiste a)</h3>
           </header>
@@ -127,7 +144,7 @@ const PokeInfo = () => {
             &&  <RelationTypes title='x0.25' relation={0.25} class_relation='x025' typesRelation={typesRelation} />
           }
         </section>
-        <section className="pokeinfo__x0 body__margin">
+        <section className="pokeinfo__x0 pokeinfo__padding">
           <header className="pokeinfo__x0__header">
             <h3 className="pokeinfo__x0__title">Immune (Inmune a)</h3>
           </header>
@@ -139,7 +156,7 @@ const PokeInfo = () => {
         </section>
       </article>
       <article className={`pokeinfo__moves pokecard__${pokemon?.types[0].type.name}`}>
-        <h2 className="pokeinfo__move__title">Evolition Chain</h2>
+        <h2 className="pokeinfo__move__title">Evolution Chain</h2>
         {
           pokemon &&
           <PokeEvolution url={pokemon?.species.url} />
@@ -147,25 +164,23 @@ const PokeInfo = () => {
       </article>
       <article className={`pokeinfo__moves pokecard__${pokemon?.types[0].type.name}`}>
         <h2 className="pokeinfo__move__title">Moves</h2>
-        <section className="pokeinfo__move__grid">
-          <ul className="pokeinfo__move__list">
-            <li className="pokeinfo__move__item">
-              <div className="pokeinfo__move__column pokeinfo__move__head">name</div>
-              <div className="pokeinfo__move__column pokeinfo__move__head">class</div>
-              <div className="pokeinfo__move__column pokeinfo__move__head">type</div>
-              <div className="pokeinfo__move__column pokeinfo__move__head">power</div>
-              <div className="pokeinfo__move__column pokeinfo__move__head">accuracy</div>
-              <div className="pokeinfo__move__column pokeinfo__move__head">pp</div>
-            </li>
-            {
-              pokemon?.moves.map(moveInfo => (
-                <MovesPoke 
-                  key={moveInfo.move.url}
-                  url={moveInfo.move.url}
-                />
-              ))
-            }
-          </ul>
+        <section className="pokeinfo__move__grid pokeinfo__padding">
+          <div className="pokeinfo__move__column pokeinfo__move__head">lvl / MT</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">name</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">class</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">type</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">power</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">accuracy</div>
+          <div className="pokeinfo__move__column pokeinfo__move__head">pp</div>
+          {
+            pokemon?.moves.toSorted(handleSortedMoves).map(moveInfo => (
+              <MovesPoke 
+                key={moveInfo.move.url}
+                url={moveInfo.move.url}
+                method={moveInfo.version_group_details}
+              />
+            ))
+          }
         </section>
       </article>
     </div>
