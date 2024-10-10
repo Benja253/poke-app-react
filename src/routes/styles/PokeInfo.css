@@ -110,6 +110,9 @@
 .pokeinfo__padding {
   padding-left: 1.5em;
   padding-right: 1.5em;
+  &.pokeinfo__move__grid {
+    padding: 0;
+  }
 }
 .pokeinfo__relation__title{
   width: 3em;
@@ -183,6 +186,9 @@
   }
   .pokeinfo__padding {
     padding: 0 3em;
+    &.pokeinfo__move__grid {
+      padding: 0 3em;
+    }
   }
   .pokeinfo__stats {
     padding-bottom: 3em;

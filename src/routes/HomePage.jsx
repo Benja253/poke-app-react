@@ -10,7 +10,7 @@ const HomePage = () => {
   const [pokemons, setPokemons] = useState()
   const [searchValue, setSearchValue] = useState('')
   const [page, setPage] = useState(1)
-  const [pokePerPage, setPokePerPage] = useState(10)
+  const [pokePerPage, setPokePerPage] = useState(12)
   const [block, setBlock] = useState(1)
   const [typeSelected, setTypeSelected] = useState('allPokemon')
 

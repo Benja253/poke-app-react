@@ -16,6 +16,9 @@ body {
   margin: 0;
   background-color: #eee;
   scroll-behavior: smooth;
+  padding-bottom: 10em;
+  position: relative;
+  min-height: 100vh;
 }
 h1, h2, h3, h4, p, ul, hr {
   margin-top: 0;

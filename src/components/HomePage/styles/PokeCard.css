@@ -4,6 +4,8 @@
   overflow: hidden;
   box-shadow: 0.2em 0.2em 0.5em #0005;
   transition: transform 100ms ease, box-shadow 100ms ease;
+  padding-bottom: 1.5em;
+  cursor: pointer;
   &:hover {
     transform: scale(1.02);
     box-shadow: 0.2em 0.2em 1em #0006;

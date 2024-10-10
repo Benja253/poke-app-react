@@ -1,0 +1,42 @@
+.footer {
+  height: 5em;
+  background-color: var(--pokeball-red);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 0 1em #0004;
+}
+.footer__msg {
+  font-size: 1em;
+  font-weight: 300;
+}
+.footer__p {
+  color: white;
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  text-decoration: none;
+  &:hover .footer__user {
+    color: white;
+    text-decoration: underline
+  }
+}
+.footer__linkedin {
+  color: white;
+  background-color: rgb(10, 102, 194);
+  font-size: 1.5em;
+  padding: 0.2em;
+  border-radius: 0.3em;
+  &:hover {
+    transform: scale(1.04);
+    filter: brightness(1.1);
+  }
+}
+.footer__user {
+  color: #ddd;
+}

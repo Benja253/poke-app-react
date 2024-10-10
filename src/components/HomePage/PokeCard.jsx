@@ -25,7 +25,7 @@ const PokeCard = ({url}) => {
   }
 
   return (
-    <article className={`pokecard pokecard__${pokemon?.types[0].type.name}`}>
+    <article onClick={handleClick} className={`pokecard pokecard__${pokemon?.types[0].type.name}`}>
       <header className="pokecard__header">
         <img className="pokecard__sprite" src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
       </header>
@@ -52,9 +52,9 @@ const PokeCard = ({url}) => {
           }
         </ul>
       </section>
-      <footer className="pokecard__footer">
-        <button onClick={handleClick} className="pokecard__btn">See more...</button>
-      </footer>
+      {/* <footer className="pokecard__footer">
+        <button className="pokecard__btn">See more...</button>
+      </footer> */}
     </article>
   )
 }

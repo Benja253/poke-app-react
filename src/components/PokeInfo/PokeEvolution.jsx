@@ -104,7 +104,6 @@ const PokeEvolution = ({url}) => {
                                     <img className="evo__item" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${evo.held_item?.name}.png`} alt="" />
                                   </>
                                   : ''
-                                  `${evo.held_item?.name ? ` + ${evo.held_item?.name.replace('-', ' ')}` : ''}`
                                 }
                               </span>
                             : (evo.location?.name)

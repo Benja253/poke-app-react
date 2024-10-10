@@ -34,21 +34,26 @@ const Pagination = ({countPoke, page, setPage, pokePerPage, block, setBlock}) =>
   }
 
   return (
-    <div className='pagination'>
-      <div onClick={handlePrev} className='pagination__arrow active__page'>&lt;</div>
-      <ul className='pagination__list'>
-        {
-          arrPages.map(pageNumber => (
-            <li 
-              className={`pagination__page ${pageNumber === page && 'active__page'}`} 
-              key={pageNumber}
-              onClick={() => handlePage(pageNumber)}
-            >{pageNumber}</li>)
-          )
-        }
-      </ul>
-      <div onClick={handleNext} className='pagination__arrow active__page'>&gt;</div>
-    </div>
+    <>
+      {
+        arrPages.length > 1 &&
+        <div className='pagination'>
+          <div onClick={handlePrev} className='pagination__arrow active__page'>&lt;</div>
+          <ul className='pagination__list'>
+            {
+              arrPages.map(pageNumber => (
+                <li 
+                  className={`pagination__page ${pageNumber === page && 'active__page'}`} 
+                  key={pageNumber}
+                  onClick={() => handlePage(pageNumber)}
+                >{pageNumber}</li>)
+              )
+            }
+          </ul>
+          <div onClick={handleNext} className='pagination__arrow active__page'>&gt;</div>
+        </div>
+      }
+    </>
   )
 }
 
