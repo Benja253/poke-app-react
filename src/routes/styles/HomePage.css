@@ -1,7 +1,7 @@
 .home__search {
   display: flex;
   justify-content: center;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 .home__search__input {
   font-size: 1.1em;

@@ -58,8 +58,6 @@ const PokeEvolution = ({url}) => {
     });
   }
 
-  console.log(evolutions)
-
   return (
     <div className="pokeinfo__evo" style={styleContainer}>
         {
@@ -80,7 +78,7 @@ const PokeEvolution = ({url}) => {
                   className="pokeinfo__flecha__container"
                   style={{color:'var(--color-type)'}}
                 >
-                  <img className="pokeinfo__flecha" src='/public/img/arrow.png' alt="" />
+                  <img className="pokeinfo__flecha" src='/img/arrow.png' alt="" />
                   <div className="pokeinfo__evo__lvl">
                     {
                       evo.min_happiness

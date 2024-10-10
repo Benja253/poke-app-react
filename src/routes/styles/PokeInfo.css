@@ -107,6 +107,10 @@
   align-items: center;
   margin-bottom: 1em;
 }
+.pokeinfo__padding {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
 .pokeinfo__relation__title{
   width: 3em;
   aspect-ratio: 1;
