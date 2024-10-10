@@ -75,28 +75,45 @@ const PokeEvolution = ({url}) => {
               )
             } else {
               return (
-                <div key={evo.name}     className="pokeinfo__flecha__container"
-                style={{color:'var(--color-type)'}}>
-                  <svg
-                    className="pokeinfo__flecha"
-                    version="1.0" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1280.000000 824.000000" 
-                    preserveAspectRatio="xMidYMid meet"
-                    still={{fill: 'var(--color-type)'}}
-                    >
-                      <g transform="translate(0.000000,824.000000) scale(0.100000,-0.100000)" stroke="none" fill="currentColor">
-                        <path d="M4540 8236 c0 -2 263 -460 585 -1017 322 -557 584 -1018 582 -1024
-                        -3 -7 -777 -11 -2419 -13 l-2416 -2 -7 -688 c-7 -633 0 -3300 9 -3309 2 -2
-                        705 -8 1562 -13 3350 -21 3344 -20 3344 -39 0 -10 -218 -491 -485 -1071 -267
-                        -579 -485 -1054 -485 -1056 0 -2 54 -4 119 -4 l120 0 63 39 c71 44 4770 2822
-                        5713 3378 1003 591 1365 807 1362 816 -3 9 -311 177 -1297 710 -316 170 -1315
-                        710 -2220 1200 -905 489 -2140 1157 -2745 1484 -605 328 -1104 599 -1109 604
-                        -9 8 -276 13 -276 5z"/>
-                      </g>
-                    </svg>
-                  {/* <img className="pokeinfo__flecha" src="/img/flecha_evo.svg" alt="" /> */}
-                  <div className="pokeinfo__evo__lvl">lvl {evo.min_level}</div>
+                <div 
+                  key={evo.name}
+                  className="pokeinfo__flecha__container"
+                  style={{color:'var(--color-type)'}}
+                >
+                  <img className="pokeinfo__flecha" src='/public/img/arrow.png' alt="" />
+                  <div className="pokeinfo__evo__lvl">
+                    {
+                      evo.min_happiness
+                        ? <span className="evo__happiness">happiness + lvl</span>
+                        : (evo.trigger.name === 'use-item')
+                          ? (
+                            <>
+                              <span className="evo__happiness">{evo.item.name.replace('-',' ')}</span>
+                              <img
+                                className="evo__item"
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${evo.item.name}.png`}
+                                alt="" 
+                              />
+                            </>
+                          )
+                          : (evo.trigger?.name === 'trade')
+                            ? <span className="evo__happiness">
+                                Trade
+                                { evo.held_item?.name
+                                  ? <>
+                                    {' +'}
+                                    <div>{evo.held_item?.name.replace('-', ' ')}</div> 
+                                    <img className="evo__item" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${evo.held_item?.name}.png`} alt="" />
+                                  </>
+                                  : ''
+                                  `${evo.held_item?.name ? ` + ${evo.held_item?.name.replace('-', ' ')}` : ''}`
+                                }
+                              </span>
+                            : (evo.location?.name)
+                              ? <span className="evo__happiness"><div>Location</div> {evo.location?.name.replace('-', ' ')}</span>
+                              : <span className="evo__lvl">{`lvl ${evo.min_level}`}</span>
+                    }
+                  </div>
                 </div>
               )
             }

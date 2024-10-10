@@ -5,13 +5,13 @@
 }
 .pagination__list {
   display: flex;
-  gap: 0.5em;
+  gap: 0.1em;
   flex-wrap: wrap;
   padding: 0 0.5em;
 }
 .pagination__arrow,
 .pagination__page {
-  font-size: 1.1em;
+  font-size: 0.9em;
   width: 2.5em;
   aspect-ratio: 1;
   border-radius: 0.5em;
@@ -32,5 +32,14 @@
   &:hover {
     filter: brightness(1);
     background-color: var(--pokeball-red);
+  }
+}
+@media screen and (min-width: 600px) {
+  .pagination__list {
+    gap: 0.5em;
+  }
+  .pagination__arrow,
+  .pagination__page {
+    font-size: 1.1em;
   }
 }

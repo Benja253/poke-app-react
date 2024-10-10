@@ -23,20 +23,30 @@
 .pokeinfo__evo__name {
   font-size: 0.9em;
   text-transform: capitalize;
+  color: var(--color-type);
 }
 .pokeinfo__flecha__container {
-  position: relative;
-  font-size: 0.7em;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 .pokeinfo__evo__lvl {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-60%, -55%);
-  color: white;
+  text-align: center;
+  font-weight: 500;
+  color: black;
+}
+.evo__item {
+  max-width: 2.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.evo__lvl {
   font-size: 1.1em;
-  font-weight: 700;
-  width: max-content;
+  font-weight: 900;
+}
+.evo__happiness {
+  font-weight: 900;
+  font-size: 1em;
 }
 @media screen and (min-width: 600px) {
   .pokeinfo__evo {
@@ -47,5 +57,13 @@
   }
   .pokeinfo__flecha__container {
     font-size: 1em;
+  }
+  .evo__happiness {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  .evo__lvl {
+    font-size: 1.2em;
+    font-weight: 700;
   }
 }

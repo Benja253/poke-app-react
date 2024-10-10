@@ -84,6 +84,11 @@
   text-transform: uppercase;
   font-weight: 500;
 }
+.pokeinfo__stat__nobase {
+  color: var(--color-type);
+  font-size: 1.2em;
+  font-weight: 700;
+}
 .pokeinfo__stat__bar {
   height: 2.5em;
   width: 100%;
@@ -141,6 +146,7 @@
 .pokeinfo__move__grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(max-content, 100%));
+  overflow-x: auto;
 }
 .pokeinfo__move__title {
   text-align: center;
@@ -153,11 +159,9 @@
   background-color: var(--color-type);
   color: white;
   font-weight: 700;
+  font-size: 0.8em;
   &.pokeinfo__move__column {
     border: 1px solid #c6d2f66f;
-  }
-  &:nth-child(5), &:nth-child(6), &:nth-child(1) {
-    font-size: 0.8em;
   }
 }
 .pokeinfo__move__class {
@@ -173,13 +177,19 @@
   .pokeinfo {
     border-radius: 0.8em;
   }
-  .pokeinfo__padding{
+  .pokeinfo__padding {
     padding: 0 3em;
+  }
+  .pokeinfo__stats {
+    padding-bottom: 3em;
   }
   .pokeinfo__move__class {
     display: initial;
   }
   .pokeinfo__move__type {
     font-size: 1em;
+  }
+  .pokeinfo__move__head {
+    font-size: 0.9em;
   }
 }

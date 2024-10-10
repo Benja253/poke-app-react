@@ -25,7 +25,7 @@ const MovesPoke = ({url, method}) => {
               : `${method[method.length - 1].level_learned_at}`
         }
       </div>
-      <div className="pokeinfo__move__column">{move?.name}</div>
+      <div className="pokeinfo__move__column">{move?.name.replace('-', ' ')}</div>
       <div className="pokeinfo__move__column">
         <span className="pokeinfo__move__class">{move?.damage_class.name}</span>
         <img 

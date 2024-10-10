@@ -103,10 +103,10 @@ const PokeInfo = () => {
                   <div key={statInfo.stat.url} className="pokeinfo__stat">
                     <div className="pokeinfo__stat__header">
                       <div className="pokeinfo__stat__label">{statInfo.stat.name}</div>
-                      <div className="pokeinfo__stat__value">{statInfo.base_stat}/255</div>
+                      <div className="pokeinfo__stat__value"><span className="pokeinfo__stat__nobase">{statInfo.base_stat}</span>/255</div>
                     </div>
                     <div className="pokeinfo__stat__bar">
-                      <div 
+                      <div
                         style={{width: `${statInfo.base_stat / 255 * 100}%`}} 
                         className="pokeinfo__stat__bar__int"
                       ></div>
